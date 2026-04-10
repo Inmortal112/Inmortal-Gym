@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 402 547" role="img" aria-labelledby="title desc">
+  <title id="title">Neon dumbbell</title>
+  <desc id="desc">A glowing white dumbbell on a black background with a subtle brick texture.</desc>
+  <defs>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="0" stdDeviation="14" flood-color="#ffffff" flood-opacity="0.55"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="26" flood-color="#ffffff" flood-opacity="0.22"/>
+    </filter>
+    <linearGradient id="shine" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="55%" stop-color="#f2f2f2"/>
+      <stop offset="100%" stop-color="#cfcfcf"/>
+    </linearGradient>
+    <pattern id="brick" width="54" height="28" patternUnits="userSpaceOnUse">
+      <rect width="54" height="28" fill="#000000"/>
+      <path d="M0 14H54M27 0V14M0 28V14M54 28V14" stroke="#121212" stroke-width="1" opacity="0.65"/>
+    </pattern>
+  </defs>
+
+  <rect width="402" height="547" fill="#000000"/>
+  <rect x="0" y="0" width="402" height="547" fill="url(#brick)" opacity="0.18"/>
+
+  <g filter="url(#softGlow)">
+    <rect x="100" y="247" width="202" height="48" rx="18" fill="none" stroke="url(#shine)" stroke-width="6" filter="url(#glow)"/>
+    <rect x="62" y="208" width="24" height="126" rx="6" fill="none" stroke="url(#shine)" stroke-width="6" filter="url(#glow)"/>
+    <rect x="80" y="196" width="22" height="150" rx="6" fill="none" stroke="url(#shine)" stroke-width="6" filter="url(#glow)"/>
+    <rect x="98" y="188" width="28" height="166" rx="7" fill="none" stroke="url(#shine)" stroke-width="6" filter="url(#glow)"/>
+    <rect x="282" y="188" width="28" height="166" rx="7" fill="none" stroke="url(#shine)" stroke-width="6" filter="url(#glow)"/>
+    <rect x="304" y="196" width="22" height="150" rx="6" fill="none" stroke="url(#shine)" stroke-width="6" filter="url(#glow)"/>
+    <rect x="320" y="208" width="24" height="126" rx="6" fill="none" stroke="url(#shine)" stroke-width="6" filter="url(#glow)"/>
+    <rect x="46" y="244" width="12" height="54" rx="3" fill="none" stroke="url(#shine)" stroke-width="4" filter="url(#glow)"/>
+    <rect x="344" y="244" width="12" height="54" rx="3" fill="none" stroke="url(#shine)" stroke-width="4" filter="url(#glow)"/>
+  </g>
+</svg>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>INMORTAL GYM</title>
+<style>
+  :root {
+    --card: rgba(12, 7, 20, 0.82);
+    --line: rgba(203, 139, 255, 0.28);
+    --text: #f8f1ff;
+    --muted: #ddc7f5;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    color: var(--text);
+    background:
+      linear-gradient(120deg, rgba(0, 0, 0, 0.78), rgba(22, 6, 38, 0.55)),
+      url('image/fondo_ref.jpeg') center center / cover no-repeat fixed;
+  }
+  .wrap {
+    width: min(1240px, calc(100% - 24px));
+    height: 100vh;
+    margin: 0 auto;
+    padding: 12px 0;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    gap: 10px;
+  }
+  .hero {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 12px;
+    align-items: center;
+    padding: 14px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background:
+      linear-gradient(90deg, rgba(6, 4, 9, 0.84), rgba(6, 4, 9, 0.6)),
+      radial-gradient(circle at 75% 50%, rgba(196, 123, 255, 0.14), transparent 35%);
+    box-shadow: 0 10px 36px rgba(0, 0, 0, 0.36);
+  }
+  .eyebrow {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 999px;
+    background: rgba(196, 123, 255, 0.14);
+    border: 1px solid rgba(196, 123, 255, 0.4);
+    color: #f0dcff;
+    letter-spacing: 0.08em;
+    font-size: 10px;
+    text-transform: uppercase;
+  }
+  .hero-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  h1 {
+    margin: 8px 0 6px;
+    font-size: clamp(44px, 7vw, 84px);
+    line-height: 0.92;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    text-shadow: 0 0 28px rgba(196, 123, 255, 0.18);
+  }
+  .lead {
+    margin: 0;
+    max-width: 700px;
+    color: #e8d8ff;
+    font-size: 14px;
+    line-height: 1.35;
+  }
+  .art {
+    position: relative;
+    min-height: 170px;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    background: #050505;
+    border: 1px solid var(--line);
+    overflow: hidden;
+  }
+  .art::before {
+    content: none;
+  }
+  .silhouette {
+    width: min(320px, 92%);
+    position: relative;
+    z-index: 1;
+    filter: drop-shadow(0 0 16px rgba(255, 255, 255, 0.28));
+  }
+  .quick {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+    align-content: start;
+  }
+  .tile {
+    display: block;
+    padding: 8px 9px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #f8f1ff;
+    background: var(--card);
+    border: 1px solid rgba(196, 123, 255, 0.2);
+    transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+  }
+  .tile:hover {
+    transform: translateY(-2px);
+    border-color: rgba(196, 123, 255, 0.56);
+    background: rgba(35, 16, 53, 0.9);
+  }
+  .tag {
+    display: inline-block;
+    padding: 2px 7px;
+    border-radius: 999px;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    background: rgba(196, 123, 255, 0.2);
+    color: #eed9ff;
+    margin-bottom: 5px;
+  }
+  .tile b {
+    display: block;
+    font-size: 14px;
+    line-height: 1.12;
+  }
+  .tile span {
+    display: block;
+    margin-top: 3px;
+    color: var(--muted);
+    font-size: 11px;
+  }
+  .footer {
+    padding: 7px 10px;
+    border-radius: 10px;
+    background: rgba(12, 7, 20, 0.78);
+    border: 1px solid rgba(196, 123, 255, 0.2);
+    color: var(--muted);
+    font-size: 11px;
+  }
+  @media (max-width: 980px) {
+    body { overflow: auto; height: auto; }
+    .wrap { height: auto; padding: 12px 0 16px; }
+    .hero { grid-template-columns: 1fr; }
+    .quick { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .art { min-height: 220px; }
+    .silhouette { width: min(240px, 72%); }
+  }
+  @media (max-width: 620px) {
+    .quick { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow">INMORTAL GYM / Control Center</span>
+        <h1>NO EXCUSES.</h1>
+      </div>
+      <div class="art" aria-label="Neon dumbbell illustration">
+        <img class="silhouette" src="image/dumbbell.svg?v=3" alt="Neon dumbbell icon">
+      </div>
+    </section>
+
+    <section class="quick" aria-label="All actions at a glance">
+      <a class="tile" href="alta_soc.html"><span class="tag">Members</span><b>Add member</b><span>Create a new profile</span></a>
+      <a class="tile" href="consulta_soc.php"><span class="tag">Members</span><b>List members</b><span>View all records</span></a>
+      <a class="tile" href="cambio_soc.html"><span class="tag">Members</span><b>Edit member</b><span>Update existing info</span></a>
+      <a class="tile" href="baja_soc.html"><span class="tag">Members</span><b>Delete member</b><span>Remove a profile</span></a>
+
+      <a class="tile" href="alta_act.html"><span class="tag">Activities</span><b>Add activity</b><span>Create training class</span></a>
+      <a class="tile" href="consulta_act.php"><span class="tag">Activities</span><b>List activities</b><span>See all classes</span></a>
+      <a class="tile" href="cambio_act.html"><span class="tag">Activities</span><b>Edit activity</b><span>Update schedule/info</span></a>
+      <a class="tile" href="baja_act.html"><span class="tag">Activities</span><b>Delete activity</b><span>Remove a class</span></a>
+
+      <a class="tile" href="alta_res.html"><span class="tag">Reservations</span><b>Add reservation</b><span>Create booking</span></a>
+      <a class="tile" href="consulta_res.php"><span class="tag">Reservations</span><b>List reservations</b><span>View all bookings</span></a>
+      <a class="tile" href="cambio_res.html"><span class="tag">Reservations</span><b>Edit reservation</b><span>Change date/price</span></a>
+      <a class="tile" href="baja_res.html"><span class="tag">Reservations</span><b>Delete reservation</b><span>Cancel booking</span></a>
+    </section>
+  </div>
+</body>
+</html>
