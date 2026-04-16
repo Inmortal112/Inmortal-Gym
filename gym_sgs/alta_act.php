@@ -2,11 +2,12 @@
 include('conexion.php');
 $conexion = conectar();
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $activity_code = mysqli_real_escape_string($conexion, $_POST['activity_code']);
-    $name = mysqli_real_escape_string($conexion, $_POST['name']);
-    $trainer_id = mysqli_real_escape_string($conexion, $_POST['trainer_id']);
-    $schedule = mysqli_real_escape_string($conexion, $_POST['schedule']);
-    $image = mysqli_real_escape_string($conexion, $_POST['image']);
+    redirigir_si_no_post('alta_act.php', array('activity_code', 'name', 'trainer_id', 'schedule', 'image'));
+    $activity_code = post_escapado($conexion, 'activity_code');
+    $name = post_escapado($conexion, 'name');
+    $trainer_id = post_escapado($conexion, 'trainer_id');
+    $schedule = post_escapado($conexion, 'schedule');
+    $image = post_escapado($conexion, 'image');
     $consulta = mysqli_query($conexion, "INSERT INTO activities (activity_code, name, trainer_id, schedule, image) VALUES ('$activity_code', '$name', '$trainer_id', '$schedule', '$image')");
     if ($consulta) {
         echo "<script>alert('DATA SAVED SUCCESSFULLY');window.location='consulta_act.php';</script>";
@@ -34,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <?php
 $trainers = mysqli_query($conexion, "SELECT trainer_id, name FROM personal_trainers ORDER BY trainer_id");
 while ($trainer = mysqli_fetch_array($trainers)) {
-    echo '<option value="' . $trainer['trainer_id'] . '">' . $trainer['trainer_id'] . ' - ' . htmlspecialchars($trainer['name'], ENT_QUOTES, 'UTF-8') . '</option>';
+    echo '<option value="' . htmlspecialchars($trainer['trainer_id'], ENT_QUOTES, 'UTF-8') . '">' . htmlspecialchars($trainer['trainer_id'], ENT_QUOTES, 'UTF-8') . ' - ' . htmlspecialchars($trainer['name'], ENT_QUOTES, 'UTF-8') . '</option>';
 }
 ?>
 </select>

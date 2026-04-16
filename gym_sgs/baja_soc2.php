@@ -1,7 +1,8 @@
 <?php
 include('conexion.php');
 $conexion = conectar();
-$member_id = mysqli_real_escape_string($conexion, $_POST['member_id']);
+redirigir_si_no_post('baja_soc.html', array('member_id'));
+$member_id = post_escapado($conexion, 'member_id');
 $consulta = mysqli_query($conexion, "DELETE FROM members WHERE member_id='$member_id'");
 if ($consulta) {
     echo "<script>alert('DATA DELETED SUCCESSFULLY');window.location='consulta_soc.php';</script>";

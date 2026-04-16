@@ -7,10 +7,10 @@ echo '<tr bgcolor="#A9CCE3"><td colspan="4" align="center"><font face="Arial" si
 echo '<tr bgcolor="#D4E6F1"><td><b>Member ID</b></td><td><b>Name</b></td><td><b>Age</b></td><td><b>Phone</b></td></tr>';
 while ($fila = mysqli_fetch_array($consulta)) {
     echo '<tr>';
-    echo '<td>' . $fila['member_id'] . '</td>';
-    echo '<td>' . $fila['name'] . '</td>';
-    echo '<td>' . $fila['age'] . '</td>';
-    echo '<td>' . $fila['phone'] . '</td>';
+    echo '<td>' . htmlspecialchars($fila['member_id'], ENT_QUOTES, 'UTF-8') . '</td>';
+    echo '<td>' . htmlspecialchars($fila['name'], ENT_QUOTES, 'UTF-8') . '</td>';
+    echo '<td>' . htmlspecialchars($fila['age'], ENT_QUOTES, 'UTF-8') . '</td>';
+    echo '<td>' . htmlspecialchars($fila['phone'], ENT_QUOTES, 'UTF-8') . '</td>';
     echo '</tr>';
 }
 echo '</table>';

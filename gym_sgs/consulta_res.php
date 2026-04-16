@@ -7,12 +7,12 @@ echo '<tr bgcolor="#ABEBC6"><td colspan="6" align="center"><font face="Arial" si
 echo '<tr bgcolor="#D5F5E3"><td><b>Member ID</b></td><td><b>Member</b></td><td><b>Activity Code</b></td><td><b>Activity</b></td><td><b>Date</b></td><td><b>Price</b></td></tr>';
 while ($fila = mysqli_fetch_array($consulta)) {
     echo '<tr>';
-    echo '<td>' . $fila['member_id'] . '</td>';
-    echo '<td>' . $fila['member_name'] . '</td>';
-    echo '<td>' . $fila['activity_code'] . '</td>';
-    echo '<td>' . $fila['activity_name'] . '</td>';
-    echo '<td>' . $fila['reservation_date'] . '</td>';
-    echo '<td>' . $fila['price'] . '</td>';
+    echo '<td>' . htmlspecialchars($fila['member_id'], ENT_QUOTES, 'UTF-8') . '</td>';
+    echo '<td>' . htmlspecialchars($fila['member_name'], ENT_QUOTES, 'UTF-8') . '</td>';
+    echo '<td>' . htmlspecialchars($fila['activity_code'], ENT_QUOTES, 'UTF-8') . '</td>';
+    echo '<td>' . htmlspecialchars($fila['activity_name'], ENT_QUOTES, 'UTF-8') . '</td>';
+    echo '<td>' . htmlspecialchars($fila['reservation_date'], ENT_QUOTES, 'UTF-8') . '</td>';
+    echo '<td>' . htmlspecialchars($fila['price'], ENT_QUOTES, 'UTF-8') . '</td>';
     echo '</tr>';
 }
 echo '</table>';

@@ -1,7 +1,8 @@
 <?php
 include('conexion.php');
 $conexion = conectar();
-$activity_code = mysqli_real_escape_string($conexion, $_POST['activity_code']);
+redirigir_si_no_post('baja_act.html', array('activity_code'));
+$activity_code = post_escapado($conexion, 'activity_code');
 $consulta = mysqli_query($conexion, "DELETE FROM activities WHERE activity_code='$activity_code'");
 if ($consulta) {
     echo "<script>alert('DATA DELETED SUCCESSFULLY');window.location='consulta_act.php';</script>";
