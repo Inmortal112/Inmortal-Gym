@@ -6,8 +6,8 @@ $member_id = post_escapado($conexion, 'member_id');
 $activity_code = post_escapado($conexion, 'activity_code');
 $consulta = mysqli_query($conexion, "DELETE FROM reservations WHERE member_id='$member_id' AND activity_code='$activity_code'");
 if ($consulta) {
-    echo "<script>alert('DATA DELETED SUCCESSFULLY');window.location='consulta_res.php';</script>";
+    redirigir_con_feedback('success', 'Data deleted successfully.', 'consulta_res.php');
 } else {
-    echo "<script>alert('ERROR DELETING DATA');window.location='baja_res.html';</script>";
+    redirigir_con_feedback('error', 'Error deleting data.', 'baja_res.html');
 }
 ?>

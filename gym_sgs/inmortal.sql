@@ -54,9 +54,13 @@ INSERT INTO `personal_trainers` (`trainer_id`, `name`, `specialty`, `age`) VALUE
 (3, 'Diego Ruiz', 'Spinning coach', 27);
 
 INSERT INTO `activities` (`activity_code`, `name`, `trainer_id`, `schedule`, `image`) VALUES
-('ACT01', 'Immortal Boxing', 1, 'Monday and Wednesday 18:00', 'boxing.jpg'),
-('ACT02', 'Functional Power', 2, 'Tuesday and Thursday 19:00', 'functional.jpg'),
-('ACT03', 'Spinning Extreme', 3, 'Friday 20:00', 'spinning.jpg');
+('ACT01', 'Immortal Boxing', 1, 'Monday and Wednesday 18:00', 'sammino-baby-8035364_1920.jpg'),
+('ACT02', 'Functional Power', 2, 'Tuesday and Thursday 19:00', 'pexels-northern-28300372.jpg'),
+('ACT03', 'Spinning Extreme', 3, 'Friday 20:00', 'people-doing-indoor-cycling.jpg');
+
+UPDATE `activities` SET `image` = 'sammino-baby-8035364_1920.jpg' WHERE `image` = 'boxing.jpg';
+UPDATE `activities` SET `image` = 'pexels-northern-28300372.jpg' WHERE `image` = 'functional.jpg';
+UPDATE `activities` SET `image` = 'people-doing-indoor-cycling.jpg' WHERE `image` = 'spinning.jpg';
 
 INSERT INTO `reservations` (`member_id`, `activity_code`, `reservation_date`, `price`) VALUES
 (1, 'ACT01', '2026-04-01', 25.00),

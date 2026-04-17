@@ -2,17 +2,23 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Add Members</title>
+<link rel="stylesheet" href="subpages.css?v=3">
 </head>
-<body>
-<form method="post" action="alta_soc.php">
-<table width="500" align="center" bgcolor="#D9EAF7" cellpadding="10" cellspacing="0" border="0">
-<tr><td colspan="2" align="center"><font face="Arial" size="5"><b>NEW MEMBER</b></font></td></tr>
-<tr><td>Name</td><td><input type="text" name="name" size="40"></td></tr>
-<tr><td>Age</td><td><input type="text" name="age" size="10"></td></tr>
-<tr><td>Phone</td><td><input type="text" name="phone" size="20"></td></tr>
-<tr><td colspan="2" align="center"><input type="submit" value="SAVE"><input type="reset" value="CLEAR"></td></tr>
-</table>
+<body class="subpage">
+<main class="page">
+<section class="panel">
+<span class="eyebrow">INMORTAL GYM / CONTROL CENTER</span>
+<h1 class="page-title">NEW MEMBER</h1>
+<form method="post" action="alta_soc.php" class="form-grid">
+<label for="name">Name</label><input id="name" type="text" name="name" required>
+<label for="age">Age</label><input id="age" type="number" name="age" min="1" required>
+<label for="phone">Phone</label><input id="phone" type="text" name="phone" required>
+<div class="form-actions"><button class="btn btn-primary" type="submit">SAVE</button><button class="btn" type="reset">CLEAR</button></div>
 </form>
+<a class="back-link" href="index.html">Back to home</a>
+</section>
+</main>
 </body>
 </html>

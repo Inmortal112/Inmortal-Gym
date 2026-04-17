@@ -10,8 +10,8 @@ $reservation_date = post_escapado($conexion, 'reservation_date');
 $price = post_escapado($conexion, 'price');
 $consulta = mysqli_query($conexion, "UPDATE reservations SET member_id='$member_id', activity_code='$activity_code', reservation_date='$reservation_date', price='$price' WHERE member_id='$member_id_old' AND activity_code='$activity_code_old'");
 if ($consulta) {
-    echo "<script>alert('DATA UPDATED SUCCESSFULLY');window.location='consulta_res.php';</script>";
+    redirigir_con_feedback('success', 'Data updated successfully.', 'consulta_res.php');
 } else {
-    echo "<script>alert('ERROR UPDATING DATA');window.location='cambio_res.html';</script>";
+    redirigir_con_feedback('error', 'Error updating data.', 'cambio_res.html');
 }
 ?>

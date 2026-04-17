@@ -5,17 +5,17 @@ redirigir_si_no_post('baja_act.html', array('activity_code'));
 $activity_code = post_escapado($conexion, 'activity_code');
 $consulta = mysqli_query($conexion, "SELECT * FROM activities WHERE activity_code='$activity_code'");
 if ($fila = mysqli_fetch_array($consulta)) {
-    echo '<form method="post" action="baja_act2.php">';
-    echo '<table width="700" align="center" bgcolor="#FCE4EC" cellpadding="10" cellspacing="0" border="0">';
-    echo '<tr><td colspan="2" align="center"><font face="Arial" size="5"><b>CONFIRM DELETE ACTIVITY</b></font></td></tr>';
-    echo '<tr><td>Code</td><td><input type="text" name="activity_code" value="' . htmlspecialchars($fila['activity_code'], ENT_QUOTES, 'UTF-8') . '" readonly></td></tr>';
-    echo '<tr><td>Name</td><td><input type="text" name="name" value="' . htmlspecialchars($fila['name'], ENT_QUOTES, 'UTF-8') . '" readonly></td></tr>';
-    echo '<tr><td>Trainer</td><td><input type="text" name="trainer_id" value="' . htmlspecialchars($fila['trainer_id'], ENT_QUOTES, 'UTF-8') . '" readonly></td></tr>';
-    echo '<tr><td>Schedule</td><td><input type="text" name="schedule" value="' . htmlspecialchars($fila['schedule'], ENT_QUOTES, 'UTF-8') . '" readonly></td></tr>';
-    echo '<tr><td>Image</td><td><input type="text" name="image" value="' . htmlspecialchars($fila['image'], ENT_QUOTES, 'UTF-8') . '" readonly></td></tr>';
-    echo '<tr><td colspan="2" align="center"><input type="submit" value="DELETE"></td></tr>';
-    echo '</table></form>';
+    render_subpage_inicio('Confirm Delete Activity', 'Review activity details before deleting');
+    echo '<form method="post" action="baja_act2.php" class="form-grid">';
+    echo '<label for="activity_code">Code</label><input id="activity_code" type="text" name="activity_code" value="' . h($fila['activity_code']) . '" readonly>';
+    echo '<label for="name">Name</label><input id="name" type="text" name="name" value="' . h($fila['name']) . '" readonly>';
+    echo '<label for="trainer_id">Trainer</label><input id="trainer_id" type="text" name="trainer_id" value="' . h($fila['trainer_id']) . '" readonly>';
+    echo '<label for="schedule">Schedule</label><input id="schedule" type="text" name="schedule" value="' . h($fila['schedule']) . '" readonly>';
+    echo '<label for="image">Image</label><input id="image" type="text" name="image" value="' . h($fila['image']) . '" readonly>';
+    echo '<div class="form-actions"><button class="btn btn-primary" type="submit">DELETE</button></div>';
+    echo '</form>';
+    render_subpage_fin();
 } else {
-    echo "<script>alert('ACTIVITY DOES NOT EXIST');window.location='baja_act.html';</script>";
+    redirigir_con_feedback('error', 'Activity does not exist.', 'baja_act.html');
 }
 ?>

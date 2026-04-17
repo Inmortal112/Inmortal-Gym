@@ -2,15 +2,21 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Delete Members</title>
+<link rel="stylesheet" href="subpages.css?v=3">
 </head>
-<body>
-<form method="post" action="baja_soc.php">
-<table width="500" align="center" bgcolor="#F7E1D9" cellpadding="10" cellspacing="0" border="0">
-<tr><td colspan="2" align="center"><font face="Arial" size="5"><b>DELETE MEMBER</b></font></td></tr>
-<tr><td>Member ID</td><td><input type="text" name="member_id" size="10"></td></tr>
-<tr><td colspan="2" align="center"><input type="submit" value="SEARCH"></td></tr>
-</table>
+<body class="subpage">
+<main class="page">
+<section class="panel">
+<span class="eyebrow">INMORTAL GYM / CONTROL CENTER</span>
+<h1 class="page-title">DELETE MEMBER</h1>
+<form method="post" action="baja_soc.php" class="form-grid">
+<label for="member_id">Member ID</label><input id="member_id" type="number" name="member_id" min="1" required>
+<div class="form-actions"><button class="btn btn-primary" type="submit">SEARCH</button></div>
 </form>
+<a class="back-link" href="index.html">Back to home</a>
+</section>
+</main>
 </body>
 </html>

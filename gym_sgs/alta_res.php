@@ -9,9 +9,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $price = post_escapado($conexion, 'price');
     $consulta = mysqli_query($conexion, "INSERT INTO reservations (member_id, activity_code, reservation_date, price) VALUES ('$member_id', '$activity_code', '$reservation_date', '$price')");
     if ($consulta) {
-        echo "<script>alert('DATA SAVED SUCCESSFULLY');window.location='consulta_res.php';</script>";
+        redirigir_con_feedback('success', 'Data saved successfully.', 'consulta_res.php');
     } else {
-        echo "<script>alert('ERROR SAVING DATA');window.location='alta_res.html';</script>";
+        redirigir_con_feedback('error', 'Error saving data.', 'alta_res.html');
     }
 }
 ?>
