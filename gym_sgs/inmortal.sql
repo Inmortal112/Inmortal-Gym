@@ -44,14 +44,14 @@ CREATE TABLE `reservations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 INSERT INTO `members` (`member_id`, `name`, `age`, `phone`) VALUES
-(1, 'Juan Perez', 28, '600123456'),
-(2, 'Maria Lopez', 35, '611234567'),
-(3, 'Carlos Sanchez', 41, '622345678');
+(1, 'Omar Montes', 28, '600123456'),
+(2, 'Ibai', 35, '611234567'),
+(3, 'Sofia Surfers', 41, '622345678');
 
 INSERT INTO `personal_trainers` (`trainer_id`, `name`, `specialty`, `age`) VALUES
-(1, 'Pedro Martinez', 'Boxing coach', 39),
-(2, 'Laura Gomez', 'Functional training coach', 31),
-(3, 'Diego Ruiz', 'Spinning coach', 27);
+(1, 'Kappha', 'Boxing coach', 39),
+(2, 'Speed', 'Functional training coach', 31),
+(3, 'Pedro Sanchez', 'Spinning coach', 27);
 
 INSERT INTO `activities` (`activity_code`, `name`, `trainer_id`, `schedule`, `image`) VALUES
 ('ACT01', 'Immortal Boxing', 1, 'Monday and Wednesday 18:00', 'sammino-baby-8035364_1920.jpg'),
