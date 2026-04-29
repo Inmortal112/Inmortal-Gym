@@ -1,11 +1,14 @@
 <?php
 function conectar() {
-    $servidor = "localhost";
-    $usuario = "root";
-    $password = "";
-    $bd = "inmortal";
-    $conexion = mysqli_connect($servidor, $usuario, $password, $bd) or die("ERROR CONNECTING TO SERVER");
-    mysqli_set_charset($conexion, "utf8mb4");
+    $servidor = getenv('DB_HOST') ?: 'localhost';
+    $usuario = getenv('DB_USER') ?: 'root';
+    $password = getenv('DB_PASS') ?: '';
+    $bd = getenv('DB_NAME') ?: 'inmortal';
+    $conexion = mysqli_connect($servidor, $usuario, $password, $bd);
+    if (!$conexion) {
+        die('ERROR CONNECTING TO SERVER: ' . mysqli_connect_error());
+    }
+    mysqli_set_charset($conexion, 'utf8mb4');
     return $conexion;
 }
 
@@ -103,5 +106,18 @@ function redirigir_con_feedback($estado, $mensaje, $destino) {
     echo '</body>';
     echo '</html>';
     exit;
+}
+
+function query_or_error($conexion, $sql) {
+    $res = mysqli_query($conexion, $sql);
+    if ($res === false) {
+        $msg = 'Database query error: ' . mysqli_error($conexion) . ' (SQL: ' . $sql . ')';
+        if (getenv('APP_DEBUG')) {
+            // show a minimal error page for debug
+            echo '<h2>Database error</h2><pre>' . h($msg) . '</pre>';
+        }
+        return false;
+    }
+    return $res;
 }
 ?>
