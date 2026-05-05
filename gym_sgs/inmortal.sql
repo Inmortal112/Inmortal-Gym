@@ -2,11 +2,10 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-CREATE DATABASE IF NOT EXISTS `inmortal`
-  CHARACTER SET utf8mb4
-  COLLATE utf8mb4_unicode_ci;
-
-USE `inmortal`;
+ --CREATE DATABASE IF NOT EXISTS `inmortal`
+ --CHARACTER SET utf8mb4
+ --COLLATE utf8mb4_unicode_ci;
+ --USE `inmortal`;
 
 CREATE TABLE `members` (
   `member_id` int(11) NOT NULL AUTO_INCREMENT,
